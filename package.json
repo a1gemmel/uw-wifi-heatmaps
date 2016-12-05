@@ -1,0 +1,32 @@
+{
+  "name": "uw-wifi-heatmaps",
+  "version": "1.0.0",
+  "description": "A leaflet-based map that displays wifi usage data for the university of Waterloo campus",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "rebuild": "node scripts/process_geojson.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/a1gemmel/uw-wifi-heatmaps.git"
+  },
+  "keywords": [
+    "leaflet",
+    "map",
+    "uwaterloo",
+    "UW",
+    "waterloo"
+  ],
+  "author": "Andrew Gemmel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/a1gemmel/uw-wifi-heatmaps/issues"
+  },
+  "homepage": "https://github.com/a1gemmel/uw-wifi-heatmaps#readme",
+  "devDependencies": {
+    "fs": "0.0.1-security",
+    "lodash": "^4.17.2",
+    "node-fs-extra": "^0.8.1"
+  }
+}
