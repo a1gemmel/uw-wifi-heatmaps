@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "rebuild": "node scripts/process_geojson.js"
+    "build": "rm -rf public && node scripts/build.js",
+    "start": "npm run build && (node scripts/watch.js &) && http-server ./public;"
   },
   "repository": {
     "type": "git",
@@ -25,8 +26,11 @@
   },
   "homepage": "https://github.com/a1gemmel/uw-wifi-heatmaps#readme",
   "devDependencies": {
+    "cheerio": "^0.22.0",
+    "chokidar": "^1.6.1",
     "fs": "0.0.1-security",
     "lodash": "^4.17.2",
-    "node-fs-extra": "^0.8.1"
+    "node-fs-extra": "^0.8.1",
+    "request": "^2.79.0"
   }
 }
