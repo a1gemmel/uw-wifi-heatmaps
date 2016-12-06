@@ -4,7 +4,10 @@ const getWifiData = require("./scraper");
 
 // copy source files to server root.
 // Maybe someday we'll need a real build process but for now let's KISS
-fs.copySync("src", "public", console.log);
+fs.copySync("src", "public");
+
+// copy data to server root for playing around with
+fs.copySync("data", "public");
 
 // Transform geoJSON object into the minimum data span we need for displaying
 // ~Optimize the payload we send to the browser~

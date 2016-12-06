@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<title>UW Wifi Heatmap</title>
+	<meta name="description" content="UW Wifi Heatmap">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+	<script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+	<!--[if lt IE 9]>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	<script src="index.js"></script>
+	<div id='map-container'/>
+	<script type="text/javascript">
+		window.onload = () => {
+			UWWifiHeatMap('map-container');
+		};
+	</script>
+</body>
+</html>

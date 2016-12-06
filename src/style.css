@@ -1,0 +1,9 @@
+html, body {
+	margin: 0px;
+	padding: 0px;
+}
+
+#map-container {
+	height: 90vh;
+	width: 100%;
+}
