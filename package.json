@@ -30,6 +30,7 @@
     "chokidar": "^1.6.1",
     "fs": "0.0.1-security",
     "lodash": "^4.17.2",
+    "nedb": "^1.8.0",
     "node-fs-extra": "^0.8.1",
     "request": "^2.79.0"
   }
