@@ -7,3 +7,7 @@ html, body {
 	height: 90vh;
 	width: 100%;
 }
+
+.popup {
+	z-index:1000;
+}
