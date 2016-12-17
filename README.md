@@ -1,8 +1,6 @@
 # UW Wifi Heatmap
 
-This open-source project will provide a leaflet map visualizing live wifi usage data at the University of Waterloo main campus. It is neat.
-
-Currently in very early development stage, don't expect anything to work yet!
+This is a leaflet map visualizing current wifi usage data at the University of Waterloo main campus. It's mostly built for use on my website, but I've made efforts to make it reasonably portable.
 
 ## Contributing
 
@@ -27,3 +25,11 @@ You must have npm and node installed to run the development environment.
 `npm run start`
 
 The test server will run at `http://localhost:8080`. The public folder will rebuild automatically as you make changes in the source directory (You still have to manually refresh the page).
+
+
+## License
+
+A browser-based map of the University of Waterloo campus with overlays indicating current wifi usage.
+Copyright (C) 2016 Andrew Gemmel, Jack Forsyth
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
