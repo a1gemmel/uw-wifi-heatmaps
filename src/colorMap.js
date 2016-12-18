@@ -5,7 +5,7 @@ const percentColors = [
 	{ pct: 1.0, color: { r: 0xff, g: 0xff, b: 0x00 } }
 ];
 
-export function getColorForPercentage(pct) {
+export default function getColorForPercentage(pct) {
 	let i = 1;
 	for (; i < percentColors.length - 1; i++) {
 		if (pct < percentColors[i].pct) {
