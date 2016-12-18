@@ -18,8 +18,6 @@ You must have npm and node installed to run the development environment.
 
 3. `npm install -g http-server`
 
-4. `npm run build`
-
 ### Running development server
 
 `npm run start`
