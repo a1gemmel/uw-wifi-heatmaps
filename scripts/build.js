@@ -8,13 +8,7 @@ fs.copySync("src", "public");
 
 // copy data to server root for playing around with
 fs.copySync("data/UW_Buildings.geojson", "public/UW_Buildings.geojson");
-
-// Transform geoJSON object into the minimum data span we need for displaying
-// ~Optimize the payload we send to the browser~
-const obj = JSON.parse(fs.readFileSync("data/ISTtoOSM.json", "utf8"));
-
-// output formatted building data to server root
-fs.appendFile("public/OSMtoIST.json", JSON.stringify(_.invert(obj), null, 2));
+fs.copySync("data/OSMtoIST.json", "public/OSMtoIST.json");
 
 const url = "https://uwaterloo.ca/information-systems-technology/statistics/wifi-charts/building-select-index";
 
