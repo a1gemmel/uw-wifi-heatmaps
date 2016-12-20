@@ -1,37 +1,32 @@
 import L from "leaflet";
-import getColorForPercentage from "./colorMap";
+import store from "./store";
 
 export default class Building extends L.GeoJSON {
-	constructor(data, wifiData) {
-		const color = getColorForPercentage(wifiData.clientPercentage);
-		super(data,	{
+	constructor(GeoJSON, name) {
+		super(GeoJSON,	{
 			style: () => {
 				return {
-					color,
 					fillOpacity: 1
 				};
 			},
-			onEachFeature: (feature) => {
-			}
 		});
-		this.wifiData = wifiData;
-		this.addEventListeners();
+		this.name = name;
 	}
 
-	setColor(color) {
+	update(state = store.getState()) {
+		this.data = state[this.name];
+		this.unbindPopup();
+		if (!this.data) {
+			this.bindPopup(`<div>I have no data and my name is ${this.name} </div>`);
+			return;
+		}
 		this.setStyle({
-			color
+			color: this.data.color
 		});
+		this.bindPopup(this.data.popup);
 	}
 
-	addEventListeners() {
-		this.bindPopup(
-`<div class='popup'>
-<div>${this.wifiData.raw.building}</div>
-<div>Clients: ${this.wifiData.raw.clientCount}</div>
-<div>Download rate: ${this.wifiData.raw.downloadRate}</div>
-<div>Upload rate: ${this.wifiData.raw.uploadRate}</div>
-</div>`
-		);
+	subscribe(store) {
+		store.subscribe(this.update.bind(this));
 	}
 }

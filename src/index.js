@@ -1,6 +1,11 @@
 import L from "leaflet";
 
 import Building from "./Building";
+import wifiView from "./views/wifi";
+import Store from "./store";
+
+import GeoJSON from "./../data/UW_Buildings.geojson";
+import OSMtoIST from "./../data/OSMtoIST.json";
 import "./style.css";
 
 window.UWWifiHeatMap = function(domElementID) {
@@ -11,35 +16,16 @@ window.UWWifiHeatMap = function(domElementID) {
 		attribution: "&copy; <a href=\"http://www.openstreetmap.org/copyright\">OpenStreetMap</a>"
 	}).addTo(map);
 
-	let dict, wifiData, geojson;
+	const store = new Store();
 
-	Promise.all([
-		fetch("OSMtoIST.json").then((r) => r.json()).then((json) => dict = json),
-		fetch("wifidata.json").then((r) => r.json()).then((json) => wifiData = json),
-		fetch("UW_Buildings.geojson").then((r) => r.json()).then((json) => geojson = json)
-	])
-	.then(() => {
-		const buildings = geojson.features;
-		const wifiDict = {};
-		for(let i = 0; i < wifiData.length; i ++) {
-			wifiDict[wifiData[i].building] = wifiData[i];
-		}
-		let maxClientCount = 0;
-		for(let j = 0; j < wifiData.length; j++) {
-			maxClientCount = Math.max(parseInt(wifiData[j].clientCount), maxClientCount);
-		}
-		for(let i = 0; i < buildings.length; i++) {
-			const building = buildings[i];
-			const translation = dict[building.properties.name];
-			if(!translation) continue;
-			const wifi = wifiDict[translation];
-			if(!wifi) continue;
-			const data = {
-				clientPercentage: parseInt(wifi.clientCount) / maxClientCount,
-				raw: wifi
-			};
-			const buildingGeoJSON = new Building(building, data).addTo(map);
-		}
-	});
+	const buildings = GeoJSON.features;
+	for(let i = 0; i < buildings.length; i++) {
+		const building = buildings[i];
+		const ISTName = OSMtoIST[building.properties.name];
+		const buildingGeoJSON = new Building(building, ISTName).addTo(map);
+		buildingGeoJSON.subscribe(store);
+	}
+
+	wifiView().then(store.setState);
 };
 
