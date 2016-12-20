@@ -16,14 +16,13 @@ You must have npm and node installed to run the development environment.
 
 2. `npm install`.
 
-3. `npm install -g http-server`
+Yeah, it's not exactly rocket appliances.
 
 ### Running development server
 
 `npm run start`
 
-The test server will run at `http://localhost:8080`. The public folder will rebuild automatically as you make changes in the source directory (You still have to manually refresh the page).
-
+The test server will run at `http://localhost:8080`. The app even rebuilds automagically!
 
 ## License
 
