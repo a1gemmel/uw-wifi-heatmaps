@@ -1,10 +1,10 @@
-import "whatwg-fetch";
-import $ from "jquery";
-import {BuildingDataModel} from "./../store";
-import getColorForPercentage from "./../colorMap";
+import 'whatwg-fetch';
+import $ from 'jquery';
+import {BuildingDataModel} from './../store';
+import getColorForPercentage from './../colorMap';
 
 function getWifiData() {
-	const url = "http://www.api.andrewgemmel.com/proxy/uwaterloo.ca/information-systems-technology/statistics/wifi-charts/building-select-index";
+	const url = 'http://www.api.andrewgemmel.com/proxy/uwaterloo.ca/information-systems-technology/statistics/wifi-charts/building-select-index';
 
 	const options =	{
 		method: 'GET',
@@ -16,7 +16,7 @@ function getWifiData() {
 	return fetch(url, options)
 		.then((response) => response.text())
 		.then((html) => {
-			const table =  $("<div/>").html(html).find("tbody");
+			const table =  $('<div/>').html(html).find('tbody');
 			const buildings = [];
 			const query_time = new Date();
 

@@ -23,6 +23,6 @@ export default function getColorForPercentage(pct) {
 		g: Math.floor(lower.color.g * pctLower + upper.color.g * pctUpper),
 		b: Math.floor(lower.color.b * pctLower + upper.color.b * pctUpper)
 	};
-	return "rgb(" + [color.r, color.g, color.b].join(",") + ")";
+	return 'rgb(' + [color.r, color.g, color.b].join(',') + ')';
 	// or output as hex if preferred
 }

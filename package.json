@@ -44,6 +44,7 @@
     "nedb": "^1.8.0",
     "node-fs-extra": "^0.8.1",
     "request": "^2.79.0",
+    "restful": "^0.4.5",
     "style-loader": "^0.13.1",
     "webpack": "^1.14.0",
     "webpack-dev-server": "^1.16.2",

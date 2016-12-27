@@ -1,5 +1,5 @@
-const cheerio = require("cheerio");
-const request = require("request");
+const cheerio = require('cheerio');
+const request = require('request');
 
 
 function getWifiData(url) {
@@ -8,7 +8,7 @@ function getWifiData(url) {
 			if (error) reject();
 
 			const $ = cheerio.load(html);
-			const table = $("tbody");
+			const table = $('tbody');
 			const buildings = [];
 			const query_time = new Date();
 

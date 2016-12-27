@@ -1,5 +1,5 @@
-import L from "leaflet";
-import store from "./store";
+import L from 'leaflet';
+import store from './store';
 
 export default class Building extends L.GeoJSON {
 	constructor(GeoJSON, name) {
